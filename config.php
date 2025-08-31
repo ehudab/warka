@@ -9,6 +9,7 @@ define('HTTPS_SERVER', getenv('HTTP_SERVER') ?: 'https://warka-s02u.onrender.com
 // DIR
 define('DIR_APPLICATION', __DIR__ . '/catalog/');
 define('DIR_SYSTEM', __DIR__ . '/system/');
+define('DIR_EXTENSION', __DIR__ . '/extension/');
 define('DIR_IMAGE', __DIR__ . '/image/');
 define('DIR_STORAGE', __DIR__ . '/system/storage/');
 define('DIR_LANGUAGE', __DIR__ . '/catalog/language/');
