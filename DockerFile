@@ -15,17 +15,6 @@ RUN apt-get update && apt-get install -y git unzip \
 RUN apt-get update && apt-get install -y libzip-dev libpng-dev && docker-php-ext-install gd zip
 
 
-# Copy composer files first for dependency install
-COPY composer.json composer.lock* /var/www/html/
-
-# Set working directory
-WORKDIR /var/www/html/
-
-# Install Composer
-COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
-
-# Install dependencies (including Twig) if composer.json exists
-RUN if [ -f composer.json ]; then composer install --no-dev --no-interaction --prefer-dist; fi
 
 # Copy app files to Apache webroot
 COPY . /var/www/html/
@@ -48,11 +37,7 @@ RUN cp -n config-dist.php config.php && cp -n admin/config-dist.php admin/config
     mkdir -p system/storage/logs system/storage/cache system/storage/download system/storage/session system/storage/upload && \
     chmod -R 777 system/storage
 
-# Install Composer
-COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-# Install Twig via Composer
-RUN composer require twig/twig:^3.0
 
 # Expose port 80
 EXPOSE 80
