@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: warka-ecommerce
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    region: oregon
