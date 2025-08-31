@@ -5,13 +5,25 @@ FROM php:8.2-apache
 # Enable Apache mod_rewrite (needed for .htaccess)
 RUN a2enmod rewrite
 
-# Install PHP MySQLi extension
-RUN docker-php-ext-install mysqli
 
-# Install PHP MySQL extensions
-RUN docker-php-ext-install mysqli
+# Install PHP MySQLi extension and required tools for Composer
+RUN apt-get update && apt-get install -y git unzip \
+    && docker-php-ext-install mysqli
 
-# Copy app files to Apache webroot
+
+# Copy composer files first for dependency install
+COPY composer.json composer.lock* /var/www/html/
+
+# Set working directory
+WORKDIR /var/www/html/
+
+# Install Composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+# Install dependencies (including Twig) if composer.json exists
+RUN if [ -f composer.json ]; then composer install --no-dev --no-interaction --prefer-dist; fi
+
+# Copy app files to Apache webroot (after composer install to avoid overwriting vendor)
 COPY . /var/www/html/
 
 # Set working directory
