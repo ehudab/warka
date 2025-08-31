@@ -40,3 +40,6 @@ require_once(DIR_SYSTEM . 'startup.php');
 
 // Framework
 require_once(DIR_SYSTEM . 'framework.php');
+if (file_exists(__DIR__ . '/../vendor/autoload.php')) {
+    require_once(__DIR__ . '/../vendor/autoload.php');
+}
