@@ -22,11 +22,4 @@ define('DIR_LOGS', __DIR__ . '/system/storage/logs/');
 define('DIR_SESSION', __DIR__ . '/system/storage/session/');
 define('DIR_UPLOAD', __DIR__ . '/system/storage/upload/');
 
-// DB
-define('DB_DRIVER', getenv('DB_DRIVER') ?: 'mysqli');
-define('DB_HOSTNAME', getenv('DB_HOSTNAME') ?: 'crossover.proxy.rlwy.net');
-define('DB_USERNAME', getenv('DB_USERNAME') ?: 'root');
-define('DB_PASSWORD', getenv('DB_PASSWORD') ?: '');
-define('DB_DATABASE', getenv('DB_DATABASE') ?: 'railway');
-define('DB_PORT', getenv('DB_PORT') ?: '44629');
-define('DB_PREFIX', getenv('DB_PREFIX') ?: 'oc_');
+
