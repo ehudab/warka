@@ -3,12 +3,12 @@
 define('APPLICATION', 'Admin');
 
 // HTTP
-define('HTTP_SERVER', 'http://localhost/warka/adminpanel/');
+define('HTTP_SERVER', 'http://localhost/warka/admin/');
 define('HTTP_CATALOG', 'http://localhost/warka/');
 
 // DIR
 define('DIR_OPENCART', 'C:/xampp/htdocs/warka/');
-define('DIR_APPLICATION', DIR_OPENCART . 'adminpanel/');
+define('DIR_APPLICATION', DIR_OPENCART . 'admin/');
 define('DIR_EXTENSION', DIR_OPENCART . 'extension/');
 define('DIR_IMAGE', DIR_OPENCART . 'image/');
 define('DIR_SYSTEM', DIR_OPENCART . 'system/');
