@@ -27,16 +27,22 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 # Install dependencies (including Twig) if composer.json exists
 RUN if [ -f composer.json ]; then composer install --no-dev --no-interaction --prefer-dist; fi
 
-# Copy app files to Apache webroot (after composer install to avoid overwriting vendor)
+# Copy app files to Apache webroot
 COPY . /var/www/html/
 
 # Set working directory
 WORKDIR /var/www/html/
 
+# Install Composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+# Install all PHP dependencies (including Twig)
+RUN composer install --no-dev --no-interaction --prefer-dist
+
 # Give proper permissions
 RUN chown -R www-data:www-data /var/www/html && chmod -R 755 /var/www/html
 
- # Ensure config.php and admin/config.php exist and are writable for installer
+# Ensure config.php and admin/config.php exist and are writable for installer
 RUN cp -n config-dist.php config.php && cp -n admin/config-dist.php admin/config.php && \
     chmod 666 config.php admin/config.php && \
     mkdir -p system/storage/logs system/storage/cache system/storage/download system/storage/session system/storage/upload && \
