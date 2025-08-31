@@ -9,8 +9,6 @@ storage/*
 # Ignore log files
 *.log
 
-# Ignore vendor if using composer
-/vendor/
 
 # Ignore node_modules if present
 /node_modules/
