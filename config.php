@@ -22,12 +22,12 @@ define('DIR_SESSION', DIR_STORAGE . 'session/');
 define('DIR_UPLOAD', DIR_STORAGE . 'upload/');
 
 // DB
-define('DB_DRIVER', getenv('DB_DRIVER') ?: 'mysqli');
-define('DB_HOSTNAME', getenv('DB_HOSTNAME') ?: 'localhost');
-define('DB_USERNAME', getenv('DB_USERNAME') ?: 'root');
-define('DB_PASSWORD', getenv('DB_PASSWORD') ?: '');
-define('DB_DATABASE', getenv('DB_DATABASE') ?: 'warka');
-define('DB_PORT', getenv('DB_PORT') ?: '3306');
+define('DB_DRIVER', 'mysqli');
+define('DB_HOSTNAME', getenv('DB_HOSTNAME'));
+define('DB_USERNAME', getenv('DB_USERNAME'));
+define('DB_PASSWORD', getenv('DB_PASSWORD'));
+define('DB_DATABASE', getenv('DB_DATABASE'));
+define('DB_PORT', getenv('DB_PORT') ?: '5432');
 define('DB_PREFIX', getenv('DB_PREFIX') ?: 'oc_');
 define('DB_SSL_KEY', getenv('DB_SSL_KEY') ?: '');
 define('DB_SSL_CERT', getenv('DB_SSL_CERT') ?: '');
