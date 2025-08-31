@@ -38,8 +38,5 @@ define('DIR_UPLOAD', DIR_SYSTEM . 'storage/upload/');
 // Startup
 require_once(DIR_SYSTEM . 'startup.php');
 
-// Composer autoloader (must come before framework.php)
-require_once __DIR__ . '/../vendor/autoload.php';
-
 // Framework
 require_once(DIR_SYSTEM . 'framework.php');
