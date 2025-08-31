@@ -1,4 +1,6 @@
 <?php
+// APPLICATION
+define('APPLICATION', 'Catalog');
 // HTTP
 define('HTTP_SERVER', getenv('HTTP_SERVER') ?: 'https://warka-s02u.onrender.com/');
 
